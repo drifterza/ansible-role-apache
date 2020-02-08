@@ -76,6 +76,19 @@
 {% if vhost.extra_parameters is defined %}
   {{ vhost.extra_parameters }}
 {% endif %}
+
+{% if vhost.extra_parameters_nodecode is defined %}
+  {{ vhost.extra_parameters_nodecode }}
+{% endif %}
+
+{% if vhost.extra_parameters_reverse is defined %}
+  {{ vhost.extra_parameters_reverse }}
+{% endif %}
+
+{% if vhost.extra_parameters_requestheader is defined %}
+  {{ vhost.extra_parameters_requestheader }}
+{% endif %}
+
 </VirtualHost>
 
 {% endif %}
