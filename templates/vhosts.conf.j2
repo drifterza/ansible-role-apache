@@ -89,6 +89,11 @@
   {{ vhost.extra_parameters_requestheader }}
 {% endif %}
 
+{% if vhost.extra_parameters_rewrite is defined %}
+  {{ vhost.extra_parameters_rewrite }}
+  {{ vhost.extra_parameters_rewrite_rule }}
+{% endif %}
+
 </VirtualHost>
 
 {% endif %}
