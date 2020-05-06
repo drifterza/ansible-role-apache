@@ -44,7 +44,18 @@
 {% if vhost.documentroot is defined %}
   DocumentRoot "{{ vhost.documentroot }}"
 {% endif %}
+{% if vhost.extra_parameters_proxy is defined %}
+	ProxyRequests Off
+	ProxyVia Off
+	ProxyPreserveHost On
 
+	<Proxy *>
+	  Order deny,allow
+	  Allow from all
+	  # Use following line instead of the previous two on Apache >= 2.4
+	  # Require all granted
+	</Proxy>
+{% endif %}
   SSLEngine on
   SSLCipherSuite {{ apache_ssl_cipher_suite }}
   SSLProtocol {{ apache_ssl_protocol }}
